@@ -1,0 +1,164 @@
+<template name="home">
+
+  <br>
+  <div class="ui vertical page grid">
+    <div class="ui centered page grid" id="metrics-list">
+
+      <div class="row">
+        <div class="column">
+
+          <form class="ui form">
+
+            <h4 class="ui dividing header">Travel Plan</h4>
+            <div class="field">
+              <label>Date</label>
+              <div class="field">
+                <input type="text" name="queryDate" placeholder="2015-10-01" value="2015-02-01">
+              </div>
+            </div>
+            <div class="two fields">
+              <div class="field">
+                <label>DepartCity</label>
+                <div class="field">
+                  <input type="text" name="departCity" placeholder="上海" value="上海">
+                </div>
+              </div>
+              <div class="field">
+                <label>Method</label>
+                <div class="ui selection dropdown">
+                  <input type="hidden" name="firstWay">
+                  <div class="default text">Method</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="getFlightPlan">Flight</div>
+                    <div class="item" data-value="getTrainPlan">Train</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="two fields">
+              <div class="field">
+                <label>TransferCity</label>
+                <div class="field">
+                  <input type="text" name="transferCity" value="北京">
+                </div>
+              </div>
+              <div class="field">
+                <label>DelayMinutes</label>
+                <div class="field">
+                  <input type="text" name="delayMinutes" placeholder="Minutes">
+                </div>
+              </div>
+            </div>
+
+            <div class="two fields">
+              <div class="field">
+                <label>ArriveCity</label>
+                <div class="field">
+                  <input type="text" name="arriveCity" value="郑州">
+                </div>
+              </div>
+              <div class="field">
+                <label>Method</label>
+                <div class="ui selection dropdown">
+                  <input type="hidden" name="secondWay">
+                  <div class="default text">Method</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                    <div class="item" data-value="getFlightPlan">Flight</div>
+                    <div class="item" data-value="getTrainPlan">Train</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ui center aligned field">
+              <input type="submit" class="ui submit green button">
+            </div>
+            <br>
+          </form>
+
+        </div> <!-- .column -->
+      </div> <!-- .row -->
+
+
+<!--       <div class="row">
+        <div class="column">
+
+          <div class="ui fluid six item labeled icon menu">
+            <a class="item active filter-all">
+              <i class="dashboard icon"></i>
+              All Metrics
+            </a>
+            <a class="item filter-reusability">
+              <i class="retweet icon"></i>
+              Reusability
+            </a>
+            <a class="item filter-learnability">
+              <i class="student icon"></i>
+              Learnability
+            </a>
+            <a class="item filter-usability">
+              <i class="lab icon"></i>
+              Usability
+            </a>
+            <a class="item filter-performance">
+              <i class="star icon"></i>
+              Performance
+            </a>
+            <a class="item filter-reliability">
+              <i class="life ring icon"></i>
+              Reliability
+            </a>
+          </div>
+
+        </div>
+      </div>  -->
+      {{#if firstPlans}}
+      <div class="row">
+        <div class="eight wide column">
+          <h4 class="ui dividing header">Click to select, Double click to clear</h4>
+          <div class="ui selection list">
+            {{#each firstPlans}}
+            <div class="item">
+              <div class="content first-way">
+                <div class="header">{{content}}</div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="eight wide column">
+          <h4 class="ui dividing header">{{selectedPlan}}</h4>
+          <div class="ui selection list">
+            {{#each secondPlans}}
+            <div class="item">
+              <div class="content">
+                <div class="header active">{{content}}</div>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div> <!-- /row -->
+      {{/if}}
+    </div>
+  </div>
+  <br>
+
+
+
+
+
+
+
+<!-- Cannot make async calls for jQuery or Semantic. Breaks Cards, Page Bar, others. -->
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.5.0/semantic.min.js"></script>
+ -->
+
+
+
+</template>
