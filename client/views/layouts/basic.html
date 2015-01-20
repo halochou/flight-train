@@ -3,8 +3,12 @@
         <header>
             {{> header}}
         </header>
+            {{#if currentUser}}
+                {{> yield}}
+            {{else}}
+                {{> blank}}
+            {{/if}}
 
-            {{> yield}}
             {{! Also a sidebar! }}
         <footer>
             {{> footer}}
